@@ -194,6 +194,69 @@ Use the translation context:
 ]>
 ```
 
+
+if you have used static translation and dynamic both in your Project just append 
+
+    .translate in Object in your view.py
+>>> continents = Continent.objects.all().translate() without indicate language in translate method
+
+ in your url file
+ 
+ from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+
+
+urlpatterns +=i18n_patterns(
+    path('i18n/',include('django.conf.urls.i18n')),
+    # put Your urls in here
+
+)
+
+settings .py  
+
+
+LANGUAGE_CODE = 'en-us'  # default (fallback) language
+LANGUAGES = (            # supported languages
+    ('en', 'English'),
+    ('sw', 'Swahili'),
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This can CRUD the translations of any objects (instance, queryset, list) and their relations.
 
 ## Documentation
